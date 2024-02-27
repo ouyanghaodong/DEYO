@@ -6,7 +6,7 @@ This is the official implementation of the paper "[DEYO: DETR with YOLO for End-
 
 | Model | Epoch | Input Shape | $AP^{val}$ | $AP^{val}_{50}$ | Params(M) | FLOPs(G) | T4 TensorRT FP16(FPS) |
 |:------|:-----:|:-----------:|:----------:|:---------------:|:---------:|:--------:|:---------------------:|
-| [DEYO-tiny](https://github.com/ouyanghaodong/assets/blob/main//download/deyo-l.pt) | 96 | 640 | 37.6 | 52.8 | 4 | 8 | 497 |
+| [DEYO-tiny](https://raw.githubusercontent.com/ouyanghaodong/assets/main/deyo-tiny.pt) | 96 | 640 | 37.6 | 52.8 | 4 | 8 | 497 |
 | [DEYO-N](https://github.com/ouyanghaodong/assets/blob/main/releases/download/v0.0.0/deyo-n.pt) | 96 | 640 | 39.7 | 55.6 | 6 | 10 | 396 |
 | [DEYO-S](https://github.com/ouyanghaodong/assets/blob/main/releases/download/v0.0.0/deyo-s.pt) | 96 | 640 | 45.8 | 62.9 | 14 | 26 | 299 |
 | [DEYO-M](https://github.com/ouyanghaodong/assets/blob/main/releases/download/v0.0.0/deyo-m.pt) | 96 | 640 | 50.7 | 68.4 | 33 | 78 | 140 |
