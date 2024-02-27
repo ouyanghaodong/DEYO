@@ -1,10 +1,10 @@
 <h2 align="center">DEYO: DETR with YOLO for End-to-End Object Detection</h2>
 
-![deyov3_overview](https://github.com/ouyanghaodong/DEYO/blob/main/figs/1.png)
+![deyo_overview](https://github.com/ouyanghaodong/DEYO/blob/main/figs/1.png)
 
 This is the official implementation of the paper "[DEYO: DETR with YOLO for End-to-End Object Detection](https://arxiv.org/abs/2402.16370)".
 
-| Model | Epoch | Input Shape | $AP^{val}$ | $AP^{val}_{50}$ | Params(M) | FLOPs(G) | T4 TensorRT FP16(FPS) |
+| Model | Epoch | Shape | $AP^{val}$ | $AP^{val}_{50}$ | Params(M) | FLOPs(G) | T4 TensorRT FP16(FPS) |
 |:------|:-----:|:-----------:|:----------:|:---------------:|:---------:|:--------:|:---------------------:|
 | [DEYO-tiny](https://github.com/ouyanghaodong/DEYO/releases/download/v0.1/deyo-tiny.pt) | 96 | 640 | 37.6 | 52.8 | 4 | 8 | 497 |
 | [DEYO-N](https://github.com/ouyanghaodong/DEYO/releases/download/v0.1/deyo-n.pt) | 96 | 640 | 39.7 | 55.6 | 6 | 10 | 396 |
