@@ -68,7 +68,7 @@ model.train(data = "coco.yaml", epochs = 96, lr0 = 0.0001, lrf = 0.0001, weight_
 
 # Eval the model
 model = RTDETR("DEYO-tiny.pt")
-model.val(data = "coco.yaml")  # for DEYO-tiny: 37.3 AP
+model.val(data = "coco.yaml")  # for DEYO-tiny: 37.6 AP
 ```
 
 ## Multi GPUs
