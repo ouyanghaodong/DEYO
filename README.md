@@ -28,10 +28,29 @@ pip install ultralytics
 ```
 
 ## Config
+| Model              | Queries | Neck Dimension  | Hidden Dimension    | GPU Memory |
+|--------------------|-------------------|-----------------|---------------------|------------|
+| YOLOv8-N           | N/A               | N/A             | (64, 128, 256)      | 3247 MiB   |
+| YOLOv8-S           | N/A               | N/A             | (64, 128, 512)      | 4857 MiB   |
+| YOLOv8-M           | N/A               | N/A             | (192, 384, 576)     | 7081 MiB   |
+| YOLOv8-L           | N/A               | N/A             | (256, 512, 512)     | 10503 MiB  |
+| YOLOv8-X           | N/A               | N/A             | (320, 640, 640)     | 13069 MiB  |
+| DEYO-tiny          | 100               | (64, 128, 256)  | 64                  | 2238 MiB   |
+| DEYO-N             | 300               | (64, 128, 256)  | 128                 | 4746 MiB   |
+| DEYO-S             | 300               | (64, 128, 256)  | 128                 | 5062 MiB   |
+| DEYO-M             | 300               | (192, 384, 576) | 256                 | 6444 MiB   |
+| DEYO-L             | 300               | (256, 512, 512) | 256                 | 6476 MiB   |
+| DEYO-X             | 300               | (320, 640, 640) | 320                 | 6888 MiB   |
+| DEYO-tiny (No CDN) | 100               | (64, 128, 256)  | 64                  | 1514 MiB   |
+| DEYO-N (No CDN)    | 300               | (64, 128, 256)  | 128                 | 2700 MiB   |
+| DEYO-S (No CDN)    | 300               | (64, 128, 512)  | 128                 | 3108 MiB   |
+| DEYO-M (No CDN)    | 300               | (192, 384, 576) | 256                 | 3948 MiB   |
+| DEYO-L (No CDN)    | 300               | (256, 512, 512) | 256                 | 4216 MiB   |
+| DEYO-X (No CDN)    | 300               | (320, 640, 640) | 320                 | 5194 MiB   |
+
 ```python
 # Open ultralytics/nn/modules/head.py 
 # Find RTDETRDecoder
-# You can configure DEYO by referring to Table 9 in our paper.
 def __init__(
    self,
    nc=80,
