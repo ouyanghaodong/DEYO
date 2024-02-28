@@ -48,7 +48,7 @@ pip install ultralytics
 | DEYO-L (No CDN)    |        300        | (256, 512, 512)     |       256        |  4216 MiB  |
 | DEYO-X (No CDN)    |        300        | (320, 640, 640)     |       320        |  5194 MiB  |
 
-
+### You can configure DEYO yourself based on the table provided above.
 
 ```python
 # Open ultralytics/nn/modules/head.py 
