@@ -28,7 +28,7 @@ pip install ultralytics
 ```
 
 ## Config
-| Model              | Queries           | Neck                | Hidden Dimension | GPU Memory |
+| Model              | Queries           | Neck                | Hidden Dimension | GPU Memory(Training) |
 |:-------------------|:-----------------:|:--------------------|:----------------:|-----------:|
 | YOLOv8-N           |         N/A       | (64, 128, 256)      |       N/A        |  3247 MiB  |
 | YOLOv8-S           |         N/A       | (64, 128, 512)      |       N/A        |  4857 MiB  |
