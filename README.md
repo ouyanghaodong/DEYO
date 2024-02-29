@@ -18,10 +18,10 @@ The end-to-end speed results following the method proposed in RT-DETR. We believ
 | Model        | Shape | score_threshold | iou | $AP^{val}$ | $AP^{val}_{50}$ | T4 TensorRT FP16 (FPS) |
 |:-------------|:-----:|:---------------:|:---:|:------:|:---------:|:----------------------:|
 | YOLOv8-N     | 640   | 0.001           | 0.7 | 37.3   | 52.5      | 163                    |
-| YOLOv8-N     | 640   | 0.005           | 0.7 | 37.3   | 52.5      | 640                    |
-| YOLOv8-N     | 640   | 0.250           | 0.7 | 37.3   | 52.5      | 643                    |
+| YOLOv8-N     | 640   | 0.005           | 0.7 | --     | --        | 640                    |
+| YOLOv8-N     | 640   | 0.250           | 0.7 | --     | --        | 643                    |
 | DEYO-tiny    | 640   | 0.001           | 0.7 | 37.6   | 52.8      | 497                    |
-| DEYO-tiny    | 640   | 0.005           | 0.7 | 37.6   | 52.8      | 497                    |
+| DEYO-tiny    | 640   | 0.005           | 0.7 | --     | --        | 497                    |
 
 Based on the findings, when NMS becomes a speed bottleneck (score_threshold=0.001), DEYO-tiny's FPS is three times that of YOLOv8-N. However, when the NMS post-processing time is shorter than the computation time for DEYO's one-to-one branch (score_threshold=0.005), DEYO-tiny does not maintain a speed advantage. It's important to note that in deployment, we typically would not use such a low threshold as score_threshold=0.001, but on edge devices, the execution time for NMS could become even slower. We recommend testing the speed of YOLOv8 and DEYO separately according to your actual use case scenarios.
 
