@@ -13,7 +13,16 @@ This is the official implementation of the paper "[DEYO: DETR with YOLO for End-
 | [DEYO-L](https://github.com/ouyanghaodong/DEYO/releases/download/v0.1/deyo-l.pt) | 96 | 640 | 52.7 | 70.2 | 51 | 155 | 100 |
 | [DEYO-X](https://github.com/ouyanghaodong/DEYO/releases/download/v0.1/deyo-x.pt) | 96 | 640 | 53.7 | 71.3 | 78 | 242 | 65 |
 
+The end-to-end speed results following the method proposed in RT-DETR. We believe this does not fully reflect the speed relationship between DEYO and YOLO, and should only be considered as a reference. In fact, the latency of NMS is related to the edge device and the number of objects in the processed image. We suggest using DEYO when NMS becomes a bottleneck in detection speed or in detecting dense scenes (DEYO eliminates the reliance on NMS, ensuring that even if two objects overlap significantly, they will not be mistakenly filtered out by NMS).
 
+| Model        | Shape | score_threshold | iou | $AP^{val}$ | $AP^{val}_{50}$ | T4 TensorRT FP16 (FPS) |
+|:-------------|:-----:|:---------------:|:---:|:------:|:---------:|:----------------------:|
+| YOLOv8-N     | 640   | 0.001           | 0.7 | 37.3   | 52.5      | 163                    |
+| YOLOv8-N     | 640   | 0.005           | 0.7 | 37.3   | 52.5      | 640                    |
+| DEYO-tiny    | 640   | 0.001           | 0.7 | 37.6   | 52.8      | 497                    |
+| DEYO-tiny    | 640   | 0.005           | 0.7 | 37.6   | 52.8      | 497                    |
+
+Based on the findings, when NMS becomes a speed bottleneck (score_threshold=0.001), ideally, DEYO-tiny's FPS is three times that of YOLOv8-N. However, when the NMS post-processing time is shorter than the computation time for DEYO's one-to-one branch (score_threshold=0.005), DEYO-tiny does not maintain a speed advantage. It's important to note that in deployment, we typically would not use such a low threshold as score_threshold=0.005. Moreover, on edge devices, the execution time for NMS could become even slower. We recommend testing the speed of YOLOv8 and DEYO separately according to your actual use case scenarios.
 
 
 ## Introduction
