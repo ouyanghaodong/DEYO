@@ -53,6 +53,12 @@ pip install ultralytics
 ```python
 # Open ultralytics/nn/modules/head.py 
 # Find RTDETRDecoder
+# DEYO-tiny: nq=100 hd=64 o2m: yolov8n
+# DEYO-N: nq=300 hd=128 o2m: yolov8n
+# DEYO-S: nq=300 hd=128 o2m: yolov8s
+# DEYO-M: nq=300 hd=256 o2m: yolov8m
+# DEYO-L: nq=300 hd=256 o2m: yolov8l
+# DEYO-X: nq=300 hd=320 o2m: yolov8x
 def __init__(
    self,
    nc=80,
