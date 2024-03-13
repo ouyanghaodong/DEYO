@@ -58,15 +58,16 @@ pip install ultralytics
 | DEYO-L (No CDN)    |        300        | (256, 512, 512)     |       256        |  4216 MiB  |
 | DEYO-X (No CDN)    |        300        | (320, 640, 640)     |       320        |  5194 MiB  |
 
-### You can configure DEYO according to the table above, controlling the scale of DEYO through yolov8-rtdetr.yaml.
+### You can configure DEYO according to the table above, controlling the scale of DEYO through yolov8-rtdetr.yaml. You can simply select the scale by using "#". Below is an example of selecting a scale of X.
 ```python
-n: [0.33, 0.25, 1024]  # YOLOv8n summary: 225 layers,  3157200 parameters,  3157184 gradients,   8.9 GFLOPs
-s: [0.33, 0.50, 1024]  # YOLOv8s summary: 225 layers, 11166560 parameters, 11166544 gradients,  28.8 GFLOPs
-m: [0.67, 0.75, 768]   # YOLOv8m summary: 295 layers, 25902640 parameters, 25902624 gradients,  79.3 GFLOPs
-l: [1.00, 1.00, 512]   # YOLOv8l summary: 365 layers, 43691520 parameters, 43691504 gradients, 165.7 GFLOPs
+# n: [0.33, 0.25, 1024]  # YOLOv8n summary: 225 layers,  3157200 parameters,  3157184 gradients,   8.9 GFLOPs
+# s: [0.33, 0.50, 1024]  # YOLOv8s summary: 225 layers, 11166560 parameters, 11166544 gradients,  28.8 GFLOPs
+# m: [0.67, 0.75, 768]   # YOLOv8m summary: 295 layers, 25902640 parameters, 25902624 gradients,  79.3 GFLOPs
+# l: [1.00, 1.00, 512]   # YOLOv8l summary: 365 layers, 43691520 parameters, 43691504 gradients, 165.7 GFLOPs
 x: [1.00, 1.25, 512]   # YOLOv8x summary: 365 layers, 68229648 parameters, 68229632 gradients, 258.5 GFLOPs
 ```
 
+### While modifying the scale, you need to configure the RTDETRDecoder.
 ```python
 # Open ultralytics/nn/modules/head.py 
 # Find RTDETRDecoder
@@ -98,7 +99,6 @@ def __init__(
 
 ```
 ## Step-by-step Training
-### When encountering out-of-memory (OOM) issues, you can opt to turn off the CDN.
 
 ```python
 from ultralytics import RTDETR
@@ -114,6 +114,25 @@ model.train(data = "coco.yaml", epochs = 96, lr0 = 0.0001, lrf = 0.0001, weight_
 model = RTDETR("DEYO-tiny.pt")
 model.val(data = "coco.yaml")  # for DEYO-tiny: 37.6 AP
 ```
+
+### When encountering out-of-memory (OOM) issues, you can opt to turn off the CDN.
+```python
+# Open ultralytics/nn/modules/head.py 
+# Find RTDETRDecoder
+# Find "Prepare denoising training"
+dn_embed, dn_bbox, attn_mask, dn_meta = get_cdn_group(
+						batch,
+						self.nc,
+						self.num_queries,
+						self.denoising_class_embed.weight,
+						self.num_denoising,
+						self.label_noise_ratio,
+						self.box_noise_scale,
+						False,
+				)
+```
+
+
 
 ## Multi GPUs
 
