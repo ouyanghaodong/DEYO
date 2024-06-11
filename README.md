@@ -27,7 +27,7 @@ Based on the findings, when NMS becomes a speed bottleneck (score_threshold=0.00
 
 | Model | Epoch | End-to-End | $AP^{val}$ | $AP^{val}_{50}$ | Params(M) | FLOPs(G) | T4 TRT FP16(FPS) |
 |:------|:-----:|:-----------:|:----------:|:---------------:|:---------:|:--------:|:---------------:|
-| YOLOv8-N | --  | ✔ | --   | --   | 3    | 9     | 565 | 
+| YOLOv8-N | --  | ✔ | 37.3 | 52.5 | 3    | 9     | 565 | 
 | DEYO-tiny | 96 | ✔ | 37.6 | 52.8 | 4    | 8     | 497 |
 
 It is noteworthy that during the integration of EfficientNMS, optimizations were made to the ONNX model, and DEYO-tiny can, at a minimum, achieve 88% of the speed of YOLOv8 in the worst-case scenario.
