@@ -13,7 +13,7 @@ This is the official implementation of the paper "[DEYO: DETR with YOLO for End-
 | [DEYO-L](https://github.com/ouyanghaodong/DEYO/releases/download/v0.1/deyo-l.pt) | 96 | 640 | 52.7 | 70.2 | 51 | 155 | 100 |
 | [DEYO-X](https://github.com/ouyanghaodong/DEYO/releases/download/v0.1/deyo-x.pt) | 96 | 640 | 53.7 | 71.3 | 78 | 242 | 65 |
 
-The upgraded version of DEYO, [DEYOv1.5](https://github.com/ouyanghaodong/DEYOv1.5) has been released🔥🔥🔥
+ • The upgraded version of DEYO, [DEYOv1.5](https://github.com/ouyanghaodong/DEYOv1.5) has been released🔥🔥🔥
 
 The end-to-end speed results following the method proposed in RT-DETR. We believe this does not fully reflect the speed relationship between DEYO and YOLO, and should only be considered as a reference. In fact, the latency of NMS is related to the edge device and the number of objects in the processed image. We suggest using DEYO when NMS becomes a bottleneck in detection speed or in detecting dense scenes (DEYO eliminates the reliance on NMS, ensuring that even if two objects overlap significantly, they will not be mistakenly filtered out by NMS).
 
