@@ -13,7 +13,7 @@ This is the official implementation of the paper "[DEYO: DETR with YOLO for End-
 | [DEYO-L](https://github.com/ouyanghaodong/DEYO/releases/download/v0.1/deyo-l.pt) | 96 | 640 | 52.7 | 70.2 | 51 | 155 | 100 |
 | [DEYO-X](https://github.com/ouyanghaodong/DEYO/releases/download/v0.1/deyo-x.pt) | 96 | 640 | 53.7 | 71.3 | 78 | 242 | 65 |
 
-## 🚀Upgrade
+## 🚀 Upgrade
  The upgraded version of DEYO, [DEYOv1.5](https://github.com/ouyanghaodong/DEYOv1.5) has been released🔥🔥🔥
 
 
